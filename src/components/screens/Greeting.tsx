@@ -1,5 +1,8 @@
 
-export default function Greeting({ onNextStep }: { onNextStep: () => void }) {
+export default function Greeting({ data, onNextStep }: { data: { title: string; description: string }; onNextStep: () => void }) {
+  console.log('Greeting data:', data);
+  const { title, description } = data;
+
   function handleClick() {
     onNextStep();
   }
@@ -14,7 +17,12 @@ export default function Greeting({ onNextStep }: { onNextStep: () => void }) {
       </svg>
 
       <div className="absolute bottom-20 left-1/2 -translate-x-1/2">
-        <p className="text-lg text-center text-white">для тебе залишили <br /> щось особливе</p>
+        {
+          title && <h1 className="text-4xl font-bold text-center text-white">{title}</h1>
+        }
+        {
+          description && <p className="max-w-md text-lg text-center text-white">{description}</p>
+        }
       </div>
 
     </div>

@@ -1,10 +1,11 @@
 
 interface ScreenWrapProps {
+    data: any;
     onNextStep: () => void;
-    Step: React.ComponentType<{ onNextStep: () => void }>;
+    Step: React.ComponentType<{ data: any; onNextStep: () => void }>;
 }
 
-export default function ScreenWrapper({ onNextStep, Step }: ScreenWrapProps) {
+export default function ScreenWrapper({ data, onNextStep, Step }: ScreenWrapProps) {
 
     function handleClick() {
         // fade in overlay
@@ -21,6 +22,6 @@ export default function ScreenWrapper({ onNextStep, Step }: ScreenWrapProps) {
     }
 
     return (
-        <Step onNextStep={handleClick} />
+        <Step data={data} onNextStep={handleClick} />
     )
 }

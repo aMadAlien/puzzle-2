@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-export default function Login({ onNextStep }: { onNextStep: () => void }) {
+export default function TextQuestion({ data, onNextStep }: { data: { question: string; correctAnswer: string }; onNextStep: () => void }) {
   const [answer, setAnswer] = useState('');
 
   function handleClick() {
-    if (answer.toLowerCase() !== 'яблучний') {
+    if (answer.trim().toLowerCase() !== data.correctAnswer.toLowerCase()) {
       alert('Невірна відповідь. Спробуй ще раз!');
       return;
     }
@@ -19,7 +19,7 @@ export default function Login({ onNextStep }: { onNextStep: () => void }) {
     >
 
       <div className="glassContainer">
-        <h2 className="title mb-7">Який сирд я найчастіше п'ю?</h2>
+        <h2 className="title mb-7">{data.question}</h2>
         <input
           value={answer}
           onChange={(e) => setAnswer(e.target.value)}

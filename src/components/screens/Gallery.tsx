@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 // import required modules
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 
-export default function Gallery() {
+export default function Gallery({ data }: { data: { images: string[] } }) {
   return (
     <div className='h-screen flex items-center'>
       <Swiper
@@ -27,9 +27,9 @@ export default function Gallery() {
         className="mySwiper"
       >
         {
-          [...Array(14).keys()].map((img, key) => (
+          data.images.map((img, key) => (
             <SwiperSlide key={key}>
-              <img src={`../../src/assets/gallery/${key}.jpg`} />
+              <img src={img} />
             </SwiperSlide>
           ))
         }
