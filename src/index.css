@@ -21,7 +21,7 @@
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
   color-scheme: light dark;
-  color: var(--text);
+  color: var(--text-h);
   /* background: var(--bg); */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -34,16 +34,22 @@
 }
 
 body {
-  font-family: "Science Gothic", sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin: 0;
+  background: #fff;
+}
+
+.quest-wrapper {
+  font-family: "Science Gothic", sans-serif;
   background: #1d1d1d;
+  color: var(--text);
 }
 
 #root {
   /* width: 1126px; */
   max-width: 100%;
   margin: 0 auto;
-  text-align: center;
+  /* text-align: center; */
   min-height: 100svh;
   display: flex;
   flex-direction: column;
@@ -56,7 +62,6 @@ p {
 }
 
 input {
-  font-family: "Science Gothic", sans-serif;
   font-size: 18px;
   padding: 10px;
   border-radius: 5px;
@@ -65,13 +70,12 @@ input {
 }
 
 button {
-  font-family: "Science Gothic", sans-serif;
   font-size: 18px;
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   border-radius: 5px;
   border: none;
   background-color: rgba(255, 255, 255, 0.429);
-  color: white;
+  /* color: white; */
   cursor: pointer;
 }
 
@@ -211,3 +215,45 @@ button {
   filter: brightness(1);
 }
 /* END: slider */
+
+.title--large {
+  font-size: calc(24px + 117px * (100vw / 1460px));
+  text-transform: uppercase;
+  text-wrap: nowrap;
+  line-height: 90%;
+  font-weight: 800;
+}
+
+@media (min-width: 1460px) {
+  .title--large {
+    font-size: 144px;
+  }
+}
+@media (max-width: 768px) {
+  .title--large {
+    /* font-size: calc(24px + 50px * (100vw / 768px)); */
+  }
+}
+
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 100s linear infinite;
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  white-space: nowrap;
+  padding-right: 20px;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
