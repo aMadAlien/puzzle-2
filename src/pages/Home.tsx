@@ -4,12 +4,21 @@ import ContactInput from "../components/homepage/ContactInput"
 import QuoteBlock from "../components/homepage/QuoteBlock"
 import ScrollLine from "../components/homepage/ScrollLine"
 import SideTemplate from "../components/homepage/SideTemplate"
+import GreetingBlock from "../components/homepage/GreetingBlock"
 
 
 export default function HomePage() {
   return (
-    <div className="p-4 h-screen">
-      <div className="max-w-[1460px] w-full mx-auto overflow-hidden">
+    <div className="p-4 min-h-screen overflow-hidden"
+      style={{
+        background: 'url("https://i.pinimg.com/originals/78/9b/64/789b6496f318fe6f62074ffb8a45ea0d.png"), #f7f2e8',
+        backgroundSize: 'cover',
+        mixBlendMode: 'multiply',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+      }}
+    >
+      <div className="max-w-[1460px] w-full mx-auto ">
 
         <BasketBtn />
 
@@ -29,6 +38,7 @@ export default function HomePage() {
           />
         </div> */}
 
+        <GreetingBlock />
 
         <section className="my-10">
           <div className="flex gap-5 justify-between">
@@ -64,6 +74,6 @@ export default function HomePage() {
           </div>
         </section>
       </div>
-    </div >
+    </div>
   )
 }

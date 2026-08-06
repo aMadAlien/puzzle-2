@@ -1,6 +1,6 @@
 export default function QuoteBlock() {
   return (
-    <div className="h-[60vh] p-5 mt-5"
+    <div className="h-[60vh] p-5 mt-3"
       style={{
         backgroundImage: "url('https://i.pinimg.com/1200x/c5/2a/e5/c52ae5f237987031a50501e7f8422c8c.jpg')",
         backgroundSize: "cover",
