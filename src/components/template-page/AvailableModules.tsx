@@ -7,7 +7,6 @@ export default function AvailableModules({
   onAdd: (slug: ModuleSlug) => void;
 }) {
   return (
-    // <div className="flex flex-col gap-2">
     <div className={`
       min-w-0 flex-1 overflow-y-auto transition-all duration-500
       grid-rows-[min-content] 
@@ -22,7 +21,7 @@ export default function AvailableModules({
             onClick={() => onAdd(slug as ModuleSlug)}
             className="
               test-card
-              flex items-center justify-between
+              flex items-center justify-center
               rounded-lg
               border border-gray-700
               bg-gray-800
@@ -33,9 +32,9 @@ export default function AvailableModules({
               hover:bg-gray-700
             "
           >
-            <span>{module.name}</span>
+            {/* <span>{module.name}</span> */}
+            {module.icon}
           </button>
-          
         )
       )}
     </div>

@@ -5,14 +5,14 @@ export const greetingFormConfig: FormConfig = {
   fields: {
     title: {
       type: FieldType.TEXT,
-      label: 'Title',
-      placeholder: 'Enter title...',
+      label: 'Заголовок',
+      placeholder: 'Введіть заголовок...',
     },
 
     description: {
       type: FieldType.TEXTAREA,
-      label: 'Description',
-      placeholder: 'Enter description...',
+      label: 'Підзаголовок/опис',
+      placeholder: 'Почніть писати...',
       rows: 5,
     },
   },
