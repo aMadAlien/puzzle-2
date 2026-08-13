@@ -7,6 +7,7 @@ import { ModuleData, SelectedModule } from "../types/module.types";
 import { moduleRegistry, ModuleSlug } from '../config/moduleRegistry';
 import AvailableModules from '../components/template-page/AvailableModules.tsx';
 import Switcher from "../elements/Switcher.tsx";
+import ConfirmModal from "../components/ui/ConfirmModal";
 
 type ModuleMode = 'list' | 'edit';
 
@@ -17,6 +18,7 @@ export default function TemplatesCreatePage() {
     useState<SelectedModule[]>([]);
   const [selectedId, setSelectedId] =
     useState<string | null>(null);
+  const [deleteTargetId, setDeleteTargetId] = useState<string | null>(null);
 
   const data = quests[0];
 
@@ -43,11 +45,20 @@ export default function TemplatesCreatePage() {
     selectModule(newModule.id);
   };
 
-  const removeModule = (id: string) => {
-    if (selectedId === id) {
+  const confirmRemoveModule = () => {
+    if (!deleteTargetId) return;
+
+    if (selectedId === deleteTargetId) {
       setSelectedId(null);
     }
-    setSelectedModules(prev => prev.filter(i => i.id !== id));
+
+    setSelectedModules(prev => prev.filter(i => i.id !== deleteTargetId));
+    setDeleteTargetId(null);
+    setModuleMode('list');
+  };
+
+  const removeModule = (id: string) => {
+    setDeleteTargetId(id);
   };
 
   const selectModule = (id: string) => {
@@ -72,6 +83,16 @@ export default function TemplatesCreatePage() {
 
   return (
     <div className="h-screen w-screen overflow-hidden bg-[#1d1d1d]">
+      <ConfirmModal
+        isOpen={deleteTargetId !== null}
+        title="Видалити модуль?"
+        message="Ця дія видалить обраний модуль із списку. Відновлення не буде доступне."
+        confirmText="Видалити"
+        cancelText="Скасувати"
+        onConfirm={confirmRemoveModule}
+        onCancel={() => setDeleteTargetId(null)}
+      />
+
       <div className="flex gap-2">
 
         <div className="overflow-hidden m-4 mr-0 h-[calc(100vh-16px*2)] max-w-[50vw] w-full">
@@ -124,6 +145,7 @@ export default function TemplatesCreatePage() {
               hideLayers={hideLayers}
               removeModule={removeModule}
               selectModule={selectModule}
+              selectedId={selectedId}
             />
           </div>
         </div>

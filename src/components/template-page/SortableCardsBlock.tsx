@@ -4,8 +4,9 @@ import { Dispatch, SetStateAction } from "react";
 import SortableCard from '../../components/cards/SortableCard';
 import { SelectedModule } from "../../types/module.types";
 
-export default function SortableCardsBlock({ data, hideLayers, selectModule, removeModule, setData }: {
+export default function SortableCardsBlock({ data, selectedId, hideLayers, selectModule, removeModule, setData }: {
   hideLayers: boolean,
+  selectedId: string,
   data: SelectedModule[],
   removeModule: (id: string) => void,
   selectModule: (id: string) => void,
@@ -44,6 +45,7 @@ export default function SortableCardsBlock({ data, hideLayers, selectModule, rem
                     id={item.id}
                     index={index}
                     data={item}
+                    isSelected={selectedId === item.id}
                     removeModule={removeModule}
                     selectModule={selectModule}
                   />
