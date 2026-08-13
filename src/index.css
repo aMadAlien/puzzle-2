@@ -43,6 +43,7 @@ body {
   font-family: "Science Gothic", sans-serif;
   background: #1d1d1d;
   color: var(--text);
+  height: 100vw;
 }
 
 #root {
@@ -74,7 +75,7 @@ button {
   /* padding: 10px 20px; */
   /* border-radius: 5px; */
   border: none;
-  background-color: rgba(255, 255, 255, 0.429);
+  /* background-color: rgba(255, 255, 255, 0.429); */
   /* color: white; */
   cursor: pointer;
 }

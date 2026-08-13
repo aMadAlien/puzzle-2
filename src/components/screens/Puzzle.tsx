@@ -20,7 +20,7 @@ export default function Puzzle({ data, onNextStep }: { data: { letter: string; i
     }, [window.innerHeight, window.innerWidth])
 
     return (
-        <div className="h-screen flex items-center justify-center relative p-5 max-md:p-2 overflow-hidden">
+        <div className="h-full flex items-center justify-center relative p-5 max-md:p-2 overflow-hidden">
             <div
                 className={`image-hint ${isCompleted ? "hidden" : ""} ${isHintOpen && 'active'}`}
                 onClick={() => setIsHintOpen(!isHintOpen)}>

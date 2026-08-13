@@ -9,7 +9,7 @@ import { EffectCoverflow, Pagination } from 'swiper/modules';
 
 export default function Gallery({ data }: { data: { images: string[] } }) {
   return (
-    <div className='h-screen flex items-center'>
+    <div className='h-full flex items-center'>
       <Swiper
         effect={'coverflow'}
         grabCursor={true}

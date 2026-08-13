@@ -9,7 +9,7 @@ export default function Greeting({ data, onNextStep }: { data: { title: string; 
 
   return (
     <div
-      className="w-screen h-screen flex justify-center items-center relative"
+      className="w-full h-full flex justify-center items-center relative"
       onClick={handleClick}
     >
       <svg className="heart" viewBox="0 0 32 29.6">

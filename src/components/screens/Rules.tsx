@@ -7,7 +7,7 @@ export default function Rules({ data, onNextStep }: { data: { title: string; des
     }
 
     return (
-        <div className="h-screen flex flex-col gap-5 justify-center items-center p-5">
+        <div className="h-full flex flex-col gap-5 justify-center items-center p-5">
             {
                 title && <h1 className="text-2xl font-bold text-center text-white">{title}</h1>
             }

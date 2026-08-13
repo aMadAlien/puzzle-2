@@ -14,7 +14,7 @@ export default function TextQuestion({ data, onNextStep }: { data: { question: s
 
 
   return (
-    <div className="w-screen h-screen overflow-hidden flex justify-center items-center relative bg-gradient-to-b from-[#f5d0dc] to-[rgb(215,214,159)]"
+    <div className="w-full h-full overflow-hidden flex justify-center items-center relative bg-gradient-to-b from-[#f5d0dc] to-[rgb(215,214,159)]"
       style={{ backgroundImage: 'url(https://i.pinimg.com/736x/14/90/44/14904482104afbf8cb9757540bbb5180.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
 
