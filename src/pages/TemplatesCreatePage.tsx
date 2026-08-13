@@ -5,9 +5,7 @@ import Greeting from '../components/screens/Greeting'
 import Rules from '../components/screens/Rules'
 import Puzzle from '../components/screens/Puzzle'
 import Gallery from '../components/screens/Gallery'
-import { DndContext } from "@dnd-kit/core";
-import { SortableContext, useSortable, arrayMove } from "@dnd-kit/sortable";
-import { CSS } from "@dnd-kit/utilities";
+import SortableCardsBlock from "../components/template-page/SortableCardsBlock";
 
 
 type ModuleMode = 'list' | 'edit';
@@ -157,42 +155,11 @@ export default function TemplatesCreatePage() {
                 </div>
             }
 
-
-            <DndContext
-              onDragEnd={({ active, over }) => {
-                if (!over || active.id === over.id) return;
-
-                setItems((items) => {
-                  const oldIndex = items.findIndex(item => item.id === active.id);
-                  const newIndex = items.findIndex(item => item.id === over.id);
-
-                  return arrayMove(items, oldIndex, newIndex);
-                });
-              }}
-            >
-              <SortableContext items={items.map(item => item.id)}>
-                <div
-                  className={`
-                    flex flex-col gap-4 overflow-y-auto
-                    bg-gray-900 pb-[80px]
-                    transition-all duration-500
-                    ${hideLayers
-                      ? "w-0 px-0 opacity-0"
-                      : "w-1/3 px-3 opacity-100"
-                    }
-                  `}
-                >
-                  {items.map(item => (
-                    <SortableCard
-                      key={item.id}
-                      id={item.id}
-                      title={item.title}
-                    />
-                  ))}
-                </div>
-              </SortableContext>
-            </DndContext>
-
+            <SortableCardsBlock
+              data={items}
+              setData={setItems}
+              hideLayers={hideLayers}
+            />
           </div>
         </div>
 
@@ -206,37 +173,4 @@ export default function TemplatesCreatePage() {
       </div>
     </div>
   )
-}
-
-function SortableCard({
-  id,
-  title,
-}: {
-  id: string;
-  title: string;
-}) {
-  const {
-    attributes,
-    listeners,
-    setNodeRef,
-    transform,
-    transition,
-  } = useSortable({ id });
-
-  const style = {
-    transform: CSS.Transform.toString(transform),
-    transition,
-  };
-
-  return (
-    <div
-      ref={setNodeRef}
-      style={style}
-      {...attributes}
-      {...listeners}
-      className="test-card shrink-0 cursor-grab active:cursor-grabbing"
-    >
-      {title}
-    </div>
-  );
 }
