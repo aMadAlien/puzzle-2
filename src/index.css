@@ -328,13 +328,11 @@ button {
     transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* edit */
-.switcher.edit .switcher-indicator {
+.switcher.first .switcher-indicator {
   transform: translateX(0);
 }
 
-/* list */
-.switcher.list .switcher-indicator {
+.switcher.second .switcher-indicator {
   transform: translateX(36px);
 }
 
@@ -346,6 +344,6 @@ button {
   transform: scale(0.92);
 }
 
-.switcher.list:active .switcher-indicator {
+.switcher.second:active .switcher-indicator {
   transform: translateX(36px) scale(0.92);
 }

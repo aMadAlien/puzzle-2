@@ -1,27 +1,23 @@
 import { FormConfig } from '../types/form.types';
 import { DynamicField } from './DynamicField';
 
-interface DynamicFormProps {
+interface DynamicFormProps<T extends Record<string, unknown>> {
   config: FormConfig;
-  values: Record<string, string>;
-  onChange: (field: string, value: string) => void;
+  values: T;
+
+  onChange: <K extends keyof T>(
+    field: K,
+    value: T[K]
+  ) => void;
 }
 
-// interface DynamicFormProps<T extends Record<string, unknown>> {
-//   config: FormConfig;
-//   values: T;
-
-//   onChange: <K extends keyof T>(
-//     field: K,
-//     value: T[K]
-//   ) => void;
-// }
-
-export function DynamicForm({
+export function DynamicForm<
+  T extends Record<string, unknown>
+>({
   config,
   values,
   onChange,
-}: DynamicFormProps) {
+}: DynamicFormProps<T>) {
   return (
     <div className="flex flex-col gap-5">
       {Object.entries(config.fields).map(
@@ -29,9 +25,12 @@ export function DynamicForm({
           <DynamicField
             key={fieldName}
             config={fieldConfig}
-            value={values[fieldName] ?? ''}
+            value={String(values[fieldName as keyof T] ?? '')}
             onChange={(value) =>
-              onChange(fieldName, value)
+              onChange(
+                fieldName as keyof T,
+                value as T[keyof T]
+              )
             }
           />
         )

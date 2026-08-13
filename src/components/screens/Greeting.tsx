@@ -1,6 +1,5 @@
 
 export default function Greeting({ data, onNextStep }: { data: { title: string; description: string }; onNextStep: () => void }) {
-  console.log('Greeting data:', data);
   const { title, description } = data;
 
   function handleClick() {

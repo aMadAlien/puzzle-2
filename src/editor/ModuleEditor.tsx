@@ -1,30 +1,16 @@
-import { useState } from 'react';
-
 import { DynamicForm } from './DynamicForm';
-import { greetingFormConfig } from '../config/greeting.config';
-import { Module } from '../types/module.types';
+import { GreetingComponents, Module, ModuleData } from '../types/module.types';
+import { moduleRegistry, ModuleSlug } from "../config/moduleRegistry";
 
 interface Props {
   module: Module;
+  onChange: (id: string, data: ModuleData) => void;
 }
 
-export function ModuleEditor({ module }: Props) {
+export function ModuleEditor({ module, onChange }: Props) {
+  const config = moduleRegistry[module.slug as ModuleSlug];
 
-  const [values, setValues] = useState(
-    module.data.components
-  );
-
-  const handleChange = (
-    field: string,
-    value: string
-  ) => {
-    setValues((prev) => ({
-      ...prev,
-      [field]: value,
-    }));
-  };
-
-  // const config = moduleRegistry[module.slug];
+  if (!config) return null;
 
   return (
     <div className="p-6">
@@ -33,12 +19,21 @@ export function ModuleEditor({ module }: Props) {
         {module.name}
       </h2>
 
+
       <DynamicForm
-        // config={config.form}
-        // values={module.data.components}
-        config={greetingFormConfig}
-        values={values}
-        onChange={handleChange}
+        config={config.form}
+        values={module.data.components as unknown as Record<string, unknown>}
+        onChange={(field, value) => {
+          const updatedComponents = {
+            ...module.data.components,
+            [field]: value,
+          };
+
+          onChange(module.id, {
+            ...module.data,
+            components: updatedComponents,
+          } as ModuleData);
+        }}
       />
 
     </div>

@@ -1,4 +1,5 @@
 import { ComponentType } from 'react';
+import { ModuleSlug } from '../config/moduleRegistry';
 
 export enum ModuleType {
   TEXT = 'text',
@@ -77,4 +78,10 @@ export interface Module<T extends ModuleData = ModuleData> {
   name: string;
   component: ComponentType<any>;
   data: T;
+}
+
+export interface SelectedModule {
+  id: string;
+  slug: ModuleSlug;
+  data: ModuleData;
 }

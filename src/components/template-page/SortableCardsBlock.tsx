@@ -2,8 +2,13 @@ import { DndContext } from "@dnd-kit/core";
 import { SortableContext, arrayMove } from "@dnd-kit/sortable";
 import { Dispatch, SetStateAction } from "react";
 import SortableCard from '../../components/cards/SortableCard';
+import { SelectedModule } from "../../types/module.types";
 
-export default function SortableCardsBlock({ data, hideLayers, setData }: { hideLayers: boolean, data: { id: string; title: string; }[], setData: Dispatch<SetStateAction<{ id: string; title: string; }[]>> }) {
+export default function SortableCardsBlock({ data, hideLayers, setData }: {
+  hideLayers: boolean,
+  data: SelectedModule[],
+  setData: Dispatch<SetStateAction<SelectedModule[]>>
+}) {
   return (
     <DndContext
       onDragEnd={({ active, over }) => {
@@ -20,22 +25,28 @@ export default function SortableCardsBlock({ data, hideLayers, setData }: { hide
       <SortableContext items={data.map(item => item.id)}>
         <div
           className={`
-            flex flex-col gap-4 overflow-y-auto
-            bg-gray-900 pb-[80px]
+            bg-gray-900 pb-[80px] overflow-y-auto
             transition-all duration-500
             ${hideLayers
-              ? "w-0 px-0 opacity-0"
-              : "w-1/3 px-3 opacity-100"
+              ? "w-0 p-0 opacity-0"
+              : "w-1/3 p-3 opacity-100"
             }
           `}
         >
-          {data.map(item => (
-            <SortableCard
-              key={item.id}
-              id={item.id}
-              title={item.title}
-            />
-          ))}
+          {
+            data.length ?
+              <div className="flex flex-col gap-4 ">
+                {data.map((item, index) => (
+                  <SortableCard
+                    key={item.id}
+                    id={item.id}
+                    index={index}
+                    data={item}
+                  />
+                ))}
+              </div>
+              : <p className="text-gray-200 text-xs">Почніть додавати модулі. Вони зявляться тут</p>
+          }
         </div>
       </SortableContext>
     </DndContext>
