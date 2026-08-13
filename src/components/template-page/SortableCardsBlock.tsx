@@ -4,9 +4,11 @@ import { Dispatch, SetStateAction } from "react";
 import SortableCard from '../../components/cards/SortableCard';
 import { SelectedModule } from "../../types/module.types";
 
-export default function SortableCardsBlock({ data, hideLayers, setData }: {
+export default function SortableCardsBlock({ data, hideLayers, selectModule, removeModule, setData }: {
   hideLayers: boolean,
   data: SelectedModule[],
+  removeModule: (id: string) => void,
+  selectModule: (id: string) => void,
   setData: Dispatch<SetStateAction<SelectedModule[]>>
 }) {
   return (
@@ -42,6 +44,8 @@ export default function SortableCardsBlock({ data, hideLayers, setData }: {
                     id={item.id}
                     index={index}
                     data={item}
+                    removeModule={removeModule}
+                    selectModule={selectModule}
                   />
                 ))}
               </div>

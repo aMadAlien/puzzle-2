@@ -1,9 +1,9 @@
 import { DynamicForm } from './DynamicForm';
-import { GreetingComponents, Module, ModuleData } from '../types/module.types';
+import { ModuleData, SelectedModule } from '../types/module.types';
 import { moduleRegistry, ModuleSlug } from "../config/moduleRegistry";
 
 interface Props {
-  module: Module;
+  module: SelectedModule;
   onChange: (id: string, data: ModuleData) => void;
 }
 

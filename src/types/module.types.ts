@@ -82,6 +82,7 @@ export interface Module<T extends ModuleData = ModuleData> {
 
 export interface SelectedModule {
   id: string;
+  name: string;
   slug: ModuleSlug;
   data: ModuleData;
 }

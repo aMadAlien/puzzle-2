@@ -13,7 +13,6 @@ type ModuleMode = 'list' | 'edit';
 export default function TemplatesCreatePage() {
   const [moduleMode, setModuleMode] = useState<ModuleMode>('list');
   const [hideLayers, setHideLayers] = useState<boolean>(true);
-  const [stepIndex, setStepIndex] = useState(0);
   const [selectedModules, setSelectedModules] =
     useState<SelectedModule[]>([]);
   const [selectedId, setSelectedId] =
@@ -32,6 +31,7 @@ export default function TemplatesCreatePage() {
     const newModule: SelectedModule = {
       id: crypto.randomUUID(),
       slug,
+      name: config.name,
       data: config.createData(),
     };
 
@@ -40,8 +40,19 @@ export default function TemplatesCreatePage() {
       newModule,
     ]);
 
-    setSelectedId(newModule.id);
+    selectModule(newModule.id);
   };
+
+  const removeModule = (id: string) => {
+    if (selectedId === id) {
+      setSelectedId(null);
+    }
+    setSelectedModules(prev => prev.filter(i => i.id !== id));
+  };
+
+  const selectModule = (id: string) => {
+    setSelectedId(id);
+  }
 
   const updateModule = (
     id: string,
@@ -98,7 +109,6 @@ export default function TemplatesCreatePage() {
                 (!selectedModule ? <div className="text-white text-sm mx-7">Оберіть модуль зі списку, який потрібно відредагувати</div>
                   :
                   <div className="min-w-0 flex-1 overflow-y-auto">
-                    {/* <ModuleEditor module={data.steps[0]} /> */}
                     <ModuleEditor
                       module={selectedModule}
                       onChange={updateModule}
@@ -112,17 +122,33 @@ export default function TemplatesCreatePage() {
               data={selectedModules}
               setData={setSelectedModules}
               hideLayers={hideLayers}
+              removeModule={removeModule}
+              selectModule={selectModule}
             />
           </div>
         </div>
 
         {/* блок для рендеру модуля */}
         <div className="rounded-lg bg-[#181818] m-4 h-[calc(100vh-16px*2)] max-w-[60vw] w-full">
-          <ScreenWrapper
-            data={data['steps'][stepIndex]?.data}
-            onNextStep={() => setStepIndex(prev => prev + 1)}
-            Step={data?.steps[stepIndex]?.component} />
+          {selectedModule ? (
+            <ScreenWrapper
+              data={selectedModule.data.components}
+              onNextStep={() => {
+                // Якщо потрібно переходити на наступний модуль
+                const currentIndex = selectedModules.findIndex(m => m.id === selectedId);
+                if (currentIndex < selectedModules.length - 1) {
+                  setSelectedId(selectedModules[currentIndex + 1].id);
+                }
+              }}
+              Step={moduleRegistry[selectedModule.slug as ModuleSlug]?.component}
+            />
+          ) : (
+            <div className="flex items-center justify-center h-full text-white text-sm">
+              Оберіть модуль зі списку, щоб переглянути його
+            </div>
+          )}
         </div>
+
       </div>
     </div>
   )
