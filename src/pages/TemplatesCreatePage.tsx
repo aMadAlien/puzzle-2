@@ -1,7 +1,7 @@
 import { useState } from "react"
 import ScreenWrapper from '../components/ScreenWrapper'
 import SortableCardsBlock from "../components/template-page/SortableCardsBlock";
-
+import { ModuleEditor } from "../editor/ModuleEditor";
 import { quests } from '../mocks/quest';
 
 type ModuleMode = 'list' | 'edit';
@@ -18,6 +18,8 @@ export default function TemplatesCreatePage() {
     { id: "5", title: "Card 5" },
     { id: "6", title: "Card 6" },
   ]);
+
+  const data = quests[0];
 
   return (
     <div className="h-screen w-screen overflow-hidden bg-[#1d1d1d]">
@@ -65,8 +67,9 @@ export default function TemplatesCreatePage() {
             {
               moduleMode === 'edit' ?
                 <div className="min-w-0 flex-1 overflow-y-auto">
-                  <input type="text" />
-                  <button>save</button>
+                  <ModuleEditor module={data.steps[0]} />
+                  {/* <input type="text" />
+                  <button>save</button> */}
                 </div>
                 : <div className={`
                       min-w-0 flex-1 overflow-y-auto transition-all duration-500
