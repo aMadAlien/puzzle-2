@@ -259,3 +259,93 @@ button {
     transform: translateX(-50%);
   }
 }
+
+
+/* ----------------------------------- */
+.test-card {
+  height: 200px;
+  background: #000;
+  border-radius: 7px;
+}
+
+.switcher {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  width: 76px;
+  height: 40px;
+  padding: 4px;
+
+  border: 1px solid #413f3f;
+  border-radius: 12px;
+
+  background: #343333;
+  cursor: pointer;
+
+  overflow: hidden;
+}
+
+.switcher svg {
+  position: relative;
+  z-index: 2;
+
+  width: 32px;
+  height: 32px;
+  padding: 7px;
+
+  color: #222;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.switcher svg.active {
+  color: #888;
+  transform: scale(1.05);
+}
+
+/* рухома підкладка */
+.switcher-indicator {
+  position: absolute;
+  z-index: 1;
+
+  top: 4px;
+  left: 4px;
+
+  width: 32px;
+  height: 32px;
+
+  border-radius: 9px;
+  background: rgb(54, 54, 54);
+
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12);
+
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* edit */
+.switcher.edit .switcher-indicator {
+  transform: translateX(0);
+}
+
+/* list */
+.switcher.list .switcher-indicator {
+  transform: translateX(36px);
+}
+
+.switcher:hover svg:not(.active) {
+  color: #555;
+}
+
+.switcher:active .switcher-indicator {
+  transform: scale(0.92);
+}
+
+.switcher.list:active .switcher-indicator {
+  transform: translateX(36px) scale(0.92);
+}

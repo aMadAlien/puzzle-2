@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import './App.css'
 import QuestPage from "./pages/Quest";
 import HomePage from "./pages/Home";
+import TemplatesCreatePage from "./pages/TemplatesCreatePage";
 
 
 export default function App() {
@@ -12,6 +13,9 @@ export default function App() {
 
         {/* Квест по slug */}
         <Route path="/quest/:slug" element={<QuestPage />} />
+
+        {/* створення шаблонів */}
+        <Route path="/template/create" element={<TemplatesCreatePage />} />
 
         {/* Якщо плануєш різні типи сторінок */}
         {/* <Route path="/love-test/:slug" element={<LoveTestPage />} /> */}
