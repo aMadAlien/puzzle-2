@@ -1,90 +1,10 @@
 import { useEffect, useState } from 'react'
-import Greeting from '../components/screens/Greeting'
-import TextQuestion from '../components/screens/TextQuestion'
-import Rules from '../components/screens/Rules'
-import ScreenWrapper from '../components/ScreenWrapper'
-import Puzzle from '../components/screens/Puzzle'
-import Gallery from '../components/screens/Gallery'
-
-import { ModuleType, Quest } from '../types/common'
 import { useParams } from 'react-router-dom'
+import ScreenWrapper from '../components/ScreenWrapper'
 
+import { Quest } from '../types/common'
+import { quests } from '../mocks/quest';
 
-
-const quests: Quest[] = [
-  {
-    slug: 'quest-1',
-    title: 'Quest 1',
-    steps: [
-      {
-        slug: 'greeting',
-        name: 'Greeting',
-        component: Greeting,
-        data: {
-          type: ModuleType.TEXT,
-          components: {
-            title: 'Привіт!',
-            description: 'Я радий, що ти тут. Давай розпочнемо нашу пригоду!'
-          }
-        }
-      },
-      {
-        slug: 'text-q',
-        name: 'Text Question',
-        component: TextQuestion,
-        data: {
-          type: ModuleType.QUESTION_TEXT,
-          components: {
-            question: 'Який сирд я найчастіше п\'ю?',
-            correctAnswer: 'яблучний'
-          }
-        }
-      },
-      {
-        slug: 'puzzle-rules',
-        name: 'Puzzle Rules',
-        component: Rules,
-        data: {
-          type: ModuleType.TEXT_IMG,
-          components: {
-            title: 'Правила гри',
-            description: 'Перед тобою одне з наших найкращих фото. Але зараз воно розбите на шматочки. Склади його 😊',
-            imgSrc: '../../src/assets/gallery/5.jpg'
-          }
-        }
-      },
-      {
-        slug: 'puzzle',
-        name: 'Puzzle',
-        component: Puzzle,
-        data: {
-          type: ModuleType.PUZZLE_LETTER,
-          components: {
-            letter: null,
-            imgSrc: '../../src/assets/gallery/5.jpg'
-          }
-        }
-      },
-      {
-        slug: 'gallery',
-        name: 'Gallery',
-        component: Gallery,
-        data: {
-          type: ModuleType.IMGS,
-          components: {
-            images: [
-              '../../src/assets/gallery/1.jpg',
-              '../../src/assets/gallery/2.jpg',
-              '../../src/assets/gallery/3.jpg',
-              '../../src/assets/gallery/4.jpg',
-              '../../src/assets/gallery/5.jpg'
-            ]
-          }
-        }
-      }
-    ]
-  },
-];
 
 export default function QuestPage() {
   const [quest, setQuest] = useState<Quest | null>(null);

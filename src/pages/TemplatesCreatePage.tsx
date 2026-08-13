@@ -1,73 +1,10 @@
 import { useState } from "react"
 import ScreenWrapper from '../components/ScreenWrapper'
-import TextQuestion from "../components/screens/TextQuestion";
-import Greeting from '../components/screens/Greeting'
-import Rules from '../components/screens/Rules'
-import Puzzle from '../components/screens/Puzzle'
-import Gallery from '../components/screens/Gallery'
 import SortableCardsBlock from "../components/template-page/SortableCardsBlock";
 
+import { quests } from '../mocks/quest';
 
 type ModuleMode = 'list' | 'edit';
-
-
-const data = {
-  slug: 'quest-1',
-  title: 'Quest 1',
-  steps: [
-    {
-      slug: 'greeting',
-      name: 'Greeting',
-      component: Greeting,
-      data: {
-        title: 'Привіт!',
-        description: 'Я радий, що ти тут. Давай розпочнемо нашу пригоду!'
-      }
-    },
-    {
-      slug: 'text-q',
-      name: 'Text Question',
-      component: TextQuestion,
-      data: {
-        question: 'Який сирд я найчастіше п\'ю?',
-        correctAnswer: 'яблучний'
-      }
-    },
-    {
-      slug: 'puzzle-rules',
-      name: 'Puzzle Rules',
-      component: Rules,
-      data: {
-        title: 'Правила гри',
-        description: 'Перед тобою одне з наших найкращих фото. Але зараз воно розбите на шматочки. Склади його 😊',
-        imgSrc: '../../src/assets/gallery/5.jpg'
-      }
-    },
-    {
-      slug: 'puzzle',
-      name: 'Puzzle',
-      component: Puzzle,
-      data: {
-        letter: null,
-        imgSrc: '../../src/assets/gallery/5.jpg'
-      }
-    },
-    {
-      slug: 'gallery',
-      name: 'Gallery',
-      component: Gallery,
-      data: {
-        images: [
-          '../../src/assets/gallery/1.jpg',
-          '../../src/assets/gallery/2.jpg',
-          '../../src/assets/gallery/3.jpg',
-          '../../src/assets/gallery/4.jpg',
-          '../../src/assets/gallery/5.jpg'
-        ]
-      }
-    }
-  ]
-}
 
 export default function TemplatesCreatePage() {
   const [moduleMode, setModuleMode] = useState<ModuleMode>('list');
@@ -86,11 +23,10 @@ export default function TemplatesCreatePage() {
     <div className="h-screen w-screen overflow-hidden bg-[#1d1d1d]">
       <div className="flex gap-2">
 
-        {/* світчер для блоків вибір/редагування модуля */}
 
-        {/* блок для вибору модуля */}
 
         <div className="overflow-hidden m-4 mr-0 h-[calc(100vh-16px*2)] w-[calc(100vw/2.6-20px)]">
+          {/* світчер для блоків вибір/редагування модуля */}
           <div className="flex justify-between gap-4">
             <button
               type="button"
@@ -125,6 +61,7 @@ export default function TemplatesCreatePage() {
           </div>
 
           <div className="flex gap-2 h-full">
+            {/* блок для вибору модуля */}
             {
               moduleMode === 'edit' ?
                 <div className="min-w-0 flex-1 overflow-y-auto">
@@ -155,6 +92,7 @@ export default function TemplatesCreatePage() {
                 </div>
             }
 
+            {/* список обраних модулів */}
             <SortableCardsBlock
               data={items}
               setData={setItems}
