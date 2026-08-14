@@ -2,7 +2,6 @@ import { useState } from "react"
 import ScreenWrapper from '../components/ScreenWrapper'
 import SortableCardsBlock from "../components/template-page/SortableCardsBlock";
 import { ModuleEditor } from "../editor/ModuleEditor";
-import { quests } from '../mocks/quest';
 import { ModuleData, SelectedModule } from "../types/module.types";
 import { moduleRegistry, ModuleSlug } from '../config/moduleRegistry';
 import AvailableModules from '../components/template-page/AvailableModules.tsx';
@@ -13,14 +12,12 @@ type ModuleMode = 'list' | 'edit';
 
 export default function TemplatesCreatePage() {
   const [moduleMode, setModuleMode] = useState<ModuleMode>('list');
-  const [hideLayers, setHideLayers] = useState<boolean>(true);
+  const [hideLayers, setHideLayers] = useState<boolean>(false);
   const [selectedModules, setSelectedModules] =
     useState<SelectedModule[]>([]);
   const [selectedId, setSelectedId] =
     useState<string | null>(null);
   const [deleteTargetId, setDeleteTargetId] = useState<string | null>(null);
-
-  const data = quests[0];
 
   const selectedModule =
     selectedModules.find(
@@ -63,6 +60,7 @@ export default function TemplatesCreatePage() {
 
   const selectModule = (id: string) => {
     setSelectedId(id);
+    setModuleMode('edit');
   }
 
   const updateModule = (
@@ -80,6 +78,8 @@ export default function TemplatesCreatePage() {
       )
     );
   };
+
+  console.log('selectedModule', selectedModule)
 
   return (
     <div className="h-screen w-screen overflow-hidden bg-[#1d1d1d]">
@@ -129,7 +129,7 @@ export default function TemplatesCreatePage() {
               moduleMode === 'edit' ?
                 (!selectedModule ? <div className="text-white text-sm mx-7">Оберіть модуль зі списку, який потрібно відредагувати</div>
                   :
-                  <div className="min-w-0 flex-1 overflow-y-auto">
+                  <div className="min-w-0 flex-1 overflow-y-auto pb-[70px]">
                     <ModuleEditor
                       module={selectedModule}
                       onChange={updateModule}
@@ -151,7 +151,7 @@ export default function TemplatesCreatePage() {
         </div>
 
         {/* блок для рендеру модуля */}
-        <div className="rounded-lg bg-[#181818] m-4 h-[calc(100vh-16px*2)] max-w-[60vw] w-full">
+        <div className="rounded-lg bg-[#181818] m-4 h-[calc(100vh-16px*2)] max-w-[50vw] w-full">
           {selectedModule ? (
             <ScreenWrapper
               data={selectedModule.data.components}

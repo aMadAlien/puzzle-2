@@ -12,6 +12,8 @@ export enum ModuleType {
 export enum FieldType {
   TEXT = 'text',
   TEXTAREA = 'textarea',
+  IMAGE = 'image',
+  IMAGE_LIST = 'image-list',
 }
 
 export interface GreetingComponents {

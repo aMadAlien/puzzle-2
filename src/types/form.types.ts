@@ -13,9 +13,22 @@ export interface TextareaFieldConfig {
   rows?: number;
 }
 
+export interface ImageFieldConfig {
+  type: FieldType.IMAGE;
+  label: string;
+}
+
+export interface ImageListFieldConfig {
+  type: FieldType.IMAGE_LIST;
+  label: string;
+  maxItems?: number;
+}
+
 export type FieldConfig =
   | TextFieldConfig
-  | TextareaFieldConfig;
+  | TextareaFieldConfig
+  | ImageFieldConfig
+  | ImageListFieldConfig;
 
 export interface FormConfig {
   fields: Record<string, FieldConfig>;

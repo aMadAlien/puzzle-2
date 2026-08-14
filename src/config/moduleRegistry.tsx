@@ -6,6 +6,8 @@ import TextQuestion from "../components/screens/TextQuestion";
 import { GalleryData, GreetingData, ModuleType, PuzzleData, RulesData, TextQuestionData } from "../types/module.types";
 import { greetingFormConfig } from "./greeting.config";
 import { textQuestionFormConfig } from "./text-question.config";
+import { galleryFormConfig } from "./gallery.config";
+import { puzzleFormConfig } from "./puzzle.config";
 
 export const moduleRegistry = {
 
@@ -44,13 +46,15 @@ export const moduleRegistry = {
     name: 'Gallery',
     type: ModuleType.IMGS,
     component: Gallery,
-    // form: galleryFormConfig,
-    form: greetingFormConfig,
-
+    form: galleryFormConfig,
     createData: (): GalleryData => ({
       type: ModuleType.IMGS,
       components: {
-        images: [],
+        images: [
+          'https://i.pinimg.com/1200x/63/1f/ee/631feeb110c371cd859e2208c5dcb665.jpg',
+          'https://i.pinimg.com/736x/76/80/0d/76800ddf98bbf403256a6b5bfb8d722c.jpg',
+          'https://i.pinimg.com/736x/b2/b7/3e/b2b73efe04bfbc226e418eb4613aaa3e.jpg',
+        ],
       },
     }),
   },
@@ -68,7 +72,7 @@ export const moduleRegistry = {
       components: {
         title: '',
         description: '',
-        imgSrc: '',
+        imgSrc: 'https://i.pinimg.com/736x/b2/b7/3e/b2b73efe04bfbc226e418eb4613aaa3e.jpg',
       },
     }),
   },
@@ -78,14 +82,13 @@ export const moduleRegistry = {
     name: 'Puzzle',
     type: ModuleType.PUZZLE_LETTER,
     component: Puzzle,
-    // form: puzzleFormConfig,
-    form: greetingFormConfig,
+    form: puzzleFormConfig,
 
     createData: (): PuzzleData => ({
       type: ModuleType.PUZZLE_LETTER,
       components: {
         letter: '',
-        imgSrc: '',
+        imgSrc: 'https://i.pinimg.com/736x/b2/b7/3e/b2b73efe04bfbc226e418eb4613aaa3e.jpg',
       },
     }),
   },

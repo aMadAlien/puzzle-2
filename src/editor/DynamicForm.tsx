@@ -25,12 +25,15 @@ export function DynamicForm<
           <DynamicField
             key={fieldName}
             config={fieldConfig}
-            value={String(values[fieldName as keyof T] ?? '')}
+            value={values[fieldName as keyof T] as string | string[] | undefined ?? ''}
             onChange={(value) =>
+            {
+console.log('value', fieldName, value)
               onChange(
                 fieldName as keyof T,
                 value as T[keyof T]
               )
+            }
             }
           />
         )
