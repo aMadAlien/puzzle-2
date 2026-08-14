@@ -1,8 +1,29 @@
 import { ModuleInfo } from "../../types/common";
 
-const savedList = [1, 3, 8, 9, 10];
 
 export default function HorizontalScreenCard({ data }: { data: ModuleInfo }) {
+  const savedModulesList: string[] = JSON.parse(localStorage.getItem('savedModulesList') || '[]');
+
+  function toggleModule(id: string) {
+    if (savedModulesList.includes(id)) {
+      removeModuleFromSaved(id);
+    } else {
+      saveModule(id);
+    }
+  }
+
+  function removeModuleFromSaved(id: string) {
+    localStorage.setItem('savedModulesList', JSON.stringify(
+      savedModulesList.filter(i => i !== id)
+    ));
+  }
+
+  function saveModule(id: string) {
+    localStorage.setItem('savedModulesList', JSON.stringify(
+      [...savedModulesList, id]
+    ));
+  }
+
   return (
     <div className="flex gap-5">
       <div className="w-[200px] aspect-square relative overflow-hidden shrink-0">
@@ -20,7 +41,10 @@ export default function HorizontalScreenCard({ data }: { data: ModuleInfo }) {
           <p className="text-[#1d1d1d]">{data.description}</p>
         </div>
 
-        <SaveBtn isSaved={savedList.includes(data.id || 0)} />
+        <SaveBtn
+          isSaved={savedModulesList.includes(data.id)}
+          onClick={() => toggleModule(data.id)}
+        />
 
         {/* <div className="border-2 border-[#1d1d1d] py-1 px-4 uppercase opacity-50 rounded-full text-center font-bold w-fit">free</div> */}
       </div>
@@ -29,10 +53,11 @@ export default function HorizontalScreenCard({ data }: { data: ModuleInfo }) {
   )
 }
 
-function SaveBtn({ isSaved }: { isSaved: boolean }) {
+function SaveBtn({ isSaved, onClick }: { isSaved: boolean, onClick: () => void }) {
   return (
     <button
       type="button"
+      onClick={onClick}
       className={`
         ${isSaved ? "opacity-50" : "opacity-75"}
         text-sm

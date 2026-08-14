@@ -7,7 +7,7 @@ export type Quest = {
 };
 
 export interface ModuleInfo {
-  id: number
+  id: string
   type: ModuleType
   title: string
   description: string
