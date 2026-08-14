@@ -1,9 +1,10 @@
+import { useMemo } from "react";
 import { moduleRegistry } from "../../config/moduleRegistry";
 import { useSavedModules } from "../../context/SavedModulesContext";
 import { ModuleSlug } from "../../types/module.types";
 import ModulesGrid from "./ModulesGrid";
 
-export default function AvailableModules({
+export default function SavedModules({
   onAdd, hideLayers
 }: {
   hideLayers: boolean,
@@ -15,11 +16,19 @@ export default function AvailableModules({
     return savedModules.includes(id);
   }
 
+  const modulesList = useMemo(() => {
+    return Object.fromEntries(
+      Object.entries(moduleRegistry).filter(([_, module]) =>
+        isSavedModule(module.id)
+      )
+    );
+  }, [savedModules, moduleRegistry]);
+
   return (
     <ModulesGrid
       onAdd={onAdd}
       hideLayers={hideLayers}
-      modulesList={moduleRegistry}
+      modulesList={modulesList}
     />
   );
 }

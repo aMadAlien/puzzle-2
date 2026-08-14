@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useSavedModules } from "../context/SavedModulesContext";
 
 export default function BasketBtn() {
@@ -5,7 +6,8 @@ export default function BasketBtn() {
   const modulesCount = savedModules.length;
 
   return (
-    <button
+    <Link
+      to={'/template/create'}
       type="button"
       className="fixed bottom-10 right-10 bg-gray-300 w-[60px] flex items-center justify-center aspect-square rounded-full shadow-lg z-50 hover:scale-110 transition-all duration-300"
     >
@@ -14,6 +16,6 @@ export default function BasketBtn() {
       <span className="absolute top-0 right-0 bg-yellow-400 rounded-full w-[17px] h-[17px] flex items-center justify-center text-xs font-semibold">
         {modulesCount}
       </span>
-    </button>
+    </Link>
   )
 }

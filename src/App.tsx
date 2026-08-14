@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import './App.css'
+import './assets/styles/elements.css'
 import QuestPage from "./pages/Quest";
 import HomePage from "./pages/Home";
 import TemplatesCreatePage from "./pages/TemplatesCreatePage";

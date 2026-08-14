@@ -1,5 +1,5 @@
-import { ComponentType } from 'react';
-import { ModuleSlug } from '../config/moduleRegistry';
+import { ComponentType, ReactNode } from 'react';
+import { FormConfig } from './form.types';
 
 export enum ModuleType {
   TEXT = 'text',
@@ -89,3 +89,33 @@ export interface SelectedModule {
   slug: ModuleSlug;
   data: ModuleData;
 }
+
+// ======================
+export type ModuleSlug =
+  | "greeting"
+  | "textQuestion"
+  | "puzzle"
+  | "gallery"
+  | "textImg";
+
+type ModuleDataMap = {
+  greeting: GreetingData;
+  textQuestion: TextQuestionData;
+  puzzle: PuzzleData;
+  gallery: GalleryData;
+  textImg: RulesData;
+};
+
+export type ModuleRegistryItem<T extends ModuleSlug> = {
+  id: string;
+  icon: ReactNode;
+  name: string;
+  type: ModuleType;
+  component: ComponentType<any>;
+  form: FormConfig;
+  createData: () => ModuleDataMap[T];
+};
+
+export type ModuleRegistry = {
+  [K in ModuleSlug]?: ModuleRegistryItem<K>;
+};

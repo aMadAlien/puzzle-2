@@ -195,29 +195,6 @@ button {
   visibility: visible;
 }
 
-/* START: slider */
-.mySwiper {
-  /* height: 50vh !important; */
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide img {
-  height: 100%;
-  object-fit: cover;
-  margin: 0 auto;
-}
-
-.swiper-slide {
-  aspect-ratio: 1/1;
-  filter: brightness(0.5);
-  transition: all 0.4s ease !important;
-}
-
-.swiper-slide.swiper-slide-active {
-  filter: brightness(1);
-}
-/* END: slider */
 
 .title--large {
   font-size: calc(24px + 117px * (100vw / 1460px));
@@ -281,7 +258,7 @@ button {
   align-items: center;
   gap: 4px;
 
-  width: 76px;
+  /* width: 76px; */
   height: 40px;
   padding: 4px;
 

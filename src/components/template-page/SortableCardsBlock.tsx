@@ -6,7 +6,7 @@ import { SelectedModule } from "../../types/module.types";
 
 export default function SortableCardsBlock({ data, selectedId, hideLayers, selectModule, removeModule, setData }: {
   hideLayers: boolean,
-  selectedId: string,
+  selectedId: string | null,
   data: SelectedModule[],
   removeModule: (id: string) => void,
   selectModule: (id: string) => void,
