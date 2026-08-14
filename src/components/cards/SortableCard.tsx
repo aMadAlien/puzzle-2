@@ -1,7 +1,6 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { SelectedModule } from "../../types/module.types";
-import { moduleRegistry, ModuleSlug } from "../../config/moduleRegistry";
 
 export default function SortableCard({
   id,
@@ -30,8 +29,6 @@ export default function SortableCard({
     transform: CSS.Transform.toString(transform),
     transition,
   };
-
-  const config = moduleRegistry[data.slug as ModuleSlug];
 
   function showDeleteConfigmModal() {
     removeModule(data.id);
@@ -91,7 +88,7 @@ export default function SortableCard({
         </div>
 
         <div className="flex items-center justify-center w-full h-full">
-          {config.icon}
+          {data.icon}
         </div>
       </div>
     </div>

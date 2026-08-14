@@ -61,19 +61,18 @@ export default function TemplatesCreatePage() {
   const addModule = (slug: ModuleSlug) => {
     const config = moduleRegistry[slug];
 
+    if (!config) return
+
     const newModule: SelectedModule = {
       id: crypto.randomUUID(),
       slug,
       name: config.name,
       data: config.createData(),
+      icon: config.icon,
     };
 
-    setSelectedModules(prev => [
-      ...prev,
-      newModule,
-    ]);
-
-    selectModule(newModule.id);
+    setSelectedModules(prev => [...prev, newModule]);
+    setSelectedId(newModule.id);
   };
 
   const confirmRemoveModule = () => {
@@ -95,6 +94,7 @@ export default function TemplatesCreatePage() {
   const selectModule = (id: string) => {
     setSelectedId(id);
     setModuleMode('edit');
+
   }
 
   const updateModule = (
@@ -129,7 +129,7 @@ export default function TemplatesCreatePage() {
       />
 
       <div className="flex flex-col gap-3 p-4">
-        <div className="flex justify-end">
+        <div className="fixed top-4 right-4">
           <button
             type="button"
             onClick={handleSaveTemplate}
@@ -222,7 +222,7 @@ export default function TemplatesCreatePage() {
           </div>
 
           {/* блок для рендеру модуля */}
-          <div className="rounded-lg bg-[#181818] m-4 h-[calc(100vh-16px*2)] max-w-[50vw] w-full">
+          <div className="rounded-lg bg-[#181818] h-[calc(100vh-16px*2)] max-w-[50vw] w-full">
             {selectedModule && module ? (
               <ScreenWrapper
                 data={selectedModule.data.components}

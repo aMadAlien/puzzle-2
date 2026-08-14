@@ -88,6 +88,7 @@ export interface SelectedModule {
   name: string;
   slug: ModuleSlug;
   data: ModuleData;
+  icon: ReactNode;
 }
 
 // ======================
