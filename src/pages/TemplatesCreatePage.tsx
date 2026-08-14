@@ -1,4 +1,5 @@
 import { useState } from "react"
+import axios from 'axios';
 import ScreenWrapper from '../components/ScreenWrapper'
 import SortableCardsBlock from "../components/template-page/SortableCardsBlock";
 import { ModuleEditor } from "../editor/ModuleEditor";
@@ -18,11 +19,42 @@ export default function TemplatesCreatePage() {
   const [selectedId, setSelectedId] =
     useState<string | null>(null);
   const [deleteTargetId, setDeleteTargetId] = useState<string | null>(null);
+  const [isSaving, setIsSaving] = useState(false);
 
   const selectedModule =
     selectedModules.find(
       module => module.id === selectedId
     );
+
+  const handleSaveTemplate = async () => {
+    const endpoint = import.meta.env.VITE_API_URL || 'http://localhost:3000/api/templates';
+
+    setIsSaving(true);
+
+    try {
+      const payload = {
+        modules: selectedModules.map(({ id, slug, name, data }) => ({
+          id,
+          slug,
+          name,
+          data,
+        })),
+      };
+
+      await axios.post(endpoint, payload, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      console.log('Template saved successfully');
+    } catch (error) {
+      console.error('Failed to save template:', error);
+      window.alert('Не вдалося зберегти шаблон. Перевірте, чи запущено backend на адресу ' + endpoint);
+    } finally {
+      setIsSaving(false);
+    }
+  };
 
   const addModule = (slug: ModuleSlug) => {
     const config = moduleRegistry[slug];
@@ -93,9 +125,21 @@ export default function TemplatesCreatePage() {
         onCancel={() => setDeleteTargetId(null)}
       />
 
-      <div className="flex gap-2">
+      <div className="flex flex-col gap-3 p-4">
+        <div className="flex justify-end">
+          <button
+            type="button"
+            onClick={handleSaveTemplate}
+            disabled={isSaving || selectedModules.length === 0}
+            className="rounded-lg bg-[#7c3aed] px-4 py-2 text-sm font-medium text-white transition hover:bg-[#6d28d9] disabled:cursor-not-allowed disabled:bg-[#4c4c4c] disabled:text-[#a3a3a3]"
+          >
+            {isSaving ? 'Збереження...' : 'Зберегти шаблон'}
+          </button>
+        </div>
 
-        <div className="overflow-hidden m-4 mr-0 h-[calc(100vh-16px*2)] max-w-[50vw] w-full">
+        <div className="flex gap-2">
+
+          <div className="overflow-hidden mr-0 h-[calc(100vh-16px*2)] max-w-[50vw] w-full">
           {/* світчер для блоків вибір/редагування модуля */}
           <div className="flex justify-between gap-4">
             <Switcher
@@ -169,8 +213,9 @@ export default function TemplatesCreatePage() {
               Оберіть модуль зі списку, щоб переглянути його
             </div>
           )}
-        </div>
+          </div>
 
+        </div>
       </div>
     </div>
   )

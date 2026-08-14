@@ -34,6 +34,7 @@ export interface RulesComponents {
 
 export interface PuzzleComponents {
   letter: string | null;
+  subtitle: string | null;
   imgSrc: string;
 }
 

@@ -8,6 +8,7 @@ import { greetingFormConfig } from "./greeting.config";
 import { textQuestionFormConfig } from "./text-question.config";
 import { galleryFormConfig } from "./gallery.config";
 import { puzzleFormConfig } from "./puzzle.config";
+import { textImgFormConfig } from "./text-img.config";
 
 export const moduleRegistry = {
 
@@ -64,8 +65,7 @@ export const moduleRegistry = {
     name: 'Puzzle Rules',
     type: ModuleType.TEXT_IMG,
     component: Rules,
-    // form: puzzleFormConfig,
-    form: greetingFormConfig,
+    form: textImgFormConfig,
 
     createData: (): RulesData => ({
       type: ModuleType.TEXT_IMG,
@@ -88,6 +88,7 @@ export const moduleRegistry = {
       type: ModuleType.PUZZLE_LETTER,
       components: {
         letter: '',
+        subtitle: '',
         imgSrc: 'https://i.pinimg.com/736x/b2/b7/3e/b2b73efe04bfbc226e418eb4613aaa3e.jpg',
       },
     }),

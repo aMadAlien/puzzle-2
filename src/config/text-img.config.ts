@@ -1,20 +1,20 @@
 import { FormConfig } from "../types/form.types";
 import { FieldType } from "../types/module.types";
 
-export const puzzleFormConfig: FormConfig = {
+export const textImgFormConfig: FormConfig = {
   fields: {
     imgSrc: {
       type: FieldType.IMAGE,
       label: 'Ваше фото',
     },
-    subtitle: {
+    title: {
       type: FieldType.TEXT,
-      label: 'Підпис до фото',
+      label: 'Заголовок',
       placeholder: 'Твоя посмішка зводить мене з розуму...',
     },
-    letter: {
+    description: {
       type: FieldType.TEXTAREA,
-      label: 'Напишіть листа',
+      label: 'Звернення/опис',
       placeholder: 'Дякую тобі за те, що ти є в моєму житті...',
       rows: 7,
     },

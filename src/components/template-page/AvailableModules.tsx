@@ -9,7 +9,7 @@ export default function AvailableModules({
   return (
     <div className={`
       min-w-0 flex-1 overflow-y-auto transition-all duration-500
-      grid-rows-[min-content] 
+      grid-rows-[min-content] content-start
       ${hideLayers ? "grid grid-cols-3" : "grid grid-cols-2"}
       gap-3 pr-2 pb-[80px]
     `}>
