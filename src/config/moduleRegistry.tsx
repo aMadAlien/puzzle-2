@@ -76,8 +76,12 @@ export const moduleRegistry: ModuleRegistry = {
     createData: (): RulesData => ({
       type: ModuleType.TEXT_IMG,
       components: {
-        title: '',
-        description: '',
+        title: 'Ось твоя перша головоломка!',
+        description: `Перед тобою одне з наших найкращих фото.
+
+Але зараз воно розбите на шматочки.
+
+Склади його 😊`,
         imgSrc: 'https://i.pinimg.com/736x/b2/b7/3e/b2b73efe04bfbc226e418eb4613aaa3e.jpg',
       },
     }),

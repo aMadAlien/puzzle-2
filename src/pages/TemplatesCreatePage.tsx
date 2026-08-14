@@ -129,7 +129,7 @@ export default function TemplatesCreatePage() {
       />
 
       <div className="flex flex-col gap-3 p-4">
-        <div className="fixed top-4 right-4">
+        <div className="fixed top-4 right-4 z-[100]">
           <button
             type="button"
             onClick={handleSaveTemplate}

@@ -12,7 +12,8 @@ export default function Rules({ data, onNextStep }: { data: { title: string; des
                 title && <h1 className="text-2xl font-bold text-center text-white">{title}</h1>
             }
             {
-                description ? <p className="text-lg text-center text-white">{description}</p>
+                description ?
+                    <p className="whitespace-pre-wrap text-lg text-center text-white">{description}</p>
                     :
                     <>
                         <p className="text-lg text-center text-white">Ось твоя перша головоломка!</p>
