@@ -1,35 +1,12 @@
+import { useSavedModules } from "../../context/SavedModulesContext";
 import { ModuleInfo } from "../../types/common";
 
-
 export default function HorizontalScreenCard({ data }: { data: ModuleInfo }) {
-  const savedModulesList: string[] = JSON.parse(localStorage.getItem('savedModulesList') || '[]');
-
-  function toggleModule(id: string) {
-    if (savedModulesList.includes(id)) {
-      removeModuleFromSaved(id);
-    } else {
-      saveModule(id);
-    }
-  }
-
-  function removeModuleFromSaved(id: string) {
-    localStorage.setItem('savedModulesList', JSON.stringify(
-      savedModulesList.filter(i => i !== id)
-    ));
-  }
-
-  function saveModule(id: string) {
-    localStorage.setItem('savedModulesList', JSON.stringify(
-      [...savedModulesList, id]
-    ));
-  }
+  const { savedModules, toggleModule } = useSavedModules();
 
   return (
     <div className="flex gap-5">
       <div className="w-[200px] aspect-square relative overflow-hidden shrink-0">
-        {/* <img src="https://i.pinimg.com/1200x/c5/2a/e5/c52ae5f237987031a50501e7f8422c8c.jpg" alt="main image"
-          className="w-full h-full object-cover"
-        /> */}
         <img src={data.image} alt="main image"
           className="w-full h-full object-cover"
         />
@@ -42,7 +19,7 @@ export default function HorizontalScreenCard({ data }: { data: ModuleInfo }) {
         </div>
 
         <SaveBtn
-          isSaved={savedModulesList.includes(data.id)}
+          isSaved={savedModules.includes(data.id)}
           onClick={() => toggleModule(data.id)}
         />
 

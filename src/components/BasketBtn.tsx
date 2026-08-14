@@ -1,5 +1,8 @@
+import { useSavedModules } from "../context/SavedModulesContext";
+
 export default function BasketBtn() {
-  const modulesCount = JSON.parse(localStorage.getItem('savedModulesList') || '[]').length;
+  const { savedModules } = useSavedModules();
+  const modulesCount = savedModules.length;
 
   return (
     <button
