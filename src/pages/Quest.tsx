@@ -8,7 +8,7 @@ import { quests } from '../mocks/quest';
 
 export default function QuestPage() {
   const [quest, setQuest] = useState<Quest | null>(null);
-  const [stepIndex, setStepIndex] = useState(0);
+  const [stepIndex, setStepIndex] = useState(4);
 
   const { slug } = useParams<{ slug: string }>();
   // const slug = window.location.pathname.split("/").pop();
@@ -32,7 +32,7 @@ export default function QuestPage() {
   return (
     <div className="quest-wrapper">
       <ScreenWrapper
-        data={quest['steps'][stepIndex]?.data}
+        data={quest['steps'][stepIndex]?.data.components}
         onNextStep={() => setStepIndex(prev => prev + 1)}
         Step={quest?.steps[stepIndex]?.component} />
 

@@ -1,7 +1,15 @@
-import { Module } from "./module.types";
+import { Module, ModuleType } from "./module.types";
 
 export type Quest = {
   slug: string;
   title: string;
   steps: Module[];
 };
+
+export interface ModuleInfo {
+  id: number
+  type: ModuleType
+  title: string
+  description: string
+  image: string
+}

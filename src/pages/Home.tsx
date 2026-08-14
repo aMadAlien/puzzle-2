@@ -5,7 +5,7 @@ import QuoteBlock from "../components/homepage/QuoteBlock"
 import ScrollLine from "../components/homepage/ScrollLine"
 import SideTemplate from "../components/homepage/SideTemplate"
 import GreetingBlock from "../components/homepage/GreetingBlock"
-
+import { modulesList } from "../mocks/homepage"
 
 export default function HomePage() {
   return (
@@ -45,18 +45,14 @@ export default function HomePage() {
 
             <div className=" w-[70%]">
               <div className="flex flex-col gap-7">
-
-                <HorizontalScreenCard data={{ title: "Card 1", description: "Description for Card 1", id: 1 }} />
-                <div className="h-[1px] w-full bg-gray-500" />
-                <HorizontalScreenCard data={{ title: "Card 2", description: "Description for Card 2", id: 2 }} />
-                <div className="h-[1px] w-full bg-gray-500" />
-                <HorizontalScreenCard data={{ title: "Card 3", description: "Description for Card 3", id: 3 }} />
-                <div className="h-[1px] w-full bg-gray-500" />
-                <HorizontalScreenCard data={{ title: "Card 4", description: "Description for Card 4", id: 4 }} />
-                <div className="h-[1px] w-full bg-gray-500" />
-                <HorizontalScreenCard data={{ title: "Card 3", description: "Description for Card 3", id: 3 }} />
-                <div className="h-[1px] w-full bg-gray-500" />
-                <HorizontalScreenCard data={{ title: "Card 4", description: "Description for Card 4", id: 4 }} />
+                {
+                  modulesList.map(item => (
+                    <div key={item.id}>
+                      <HorizontalScreenCard data={item} />
+                      <div className="h-[1px] w-full bg-gray-500" />
+                    </div>
+                  ))
+                }
               </div>
               <button className="flex gap-2 items-center transition-all duration-300 hover:opacity-50 mt-10">
                 <span className="text-sm uppercase">Переглянути всі</span>

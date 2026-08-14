@@ -47,7 +47,7 @@ export const quests: Quest[] = [
           components: {
             title: 'Правила гри',
             description: 'Перед тобою одне з наших найкращих фото. Але зараз воно розбите на шматочки. Склади його 😊',
-            imgSrc: '../../src/assets/gallery/5.jpg'
+            imgSrc: 'https://i.pinimg.com/1200x/f0/9b/7b/f09b7b40b89df500ea3a24aba282764b.jpg'
           }
         }
       },
@@ -61,7 +61,7 @@ export const quests: Quest[] = [
           components: {
             letter: null,
             subtitle: '',
-            imgSrc: '../../src/assets/gallery/5.jpg'
+            imgSrc: 'https://i.pinimg.com/1200x/f0/9b/7b/f09b7b40b89df500ea3a24aba282764b.jpg'
           }
         }
       },
@@ -74,11 +74,11 @@ export const quests: Quest[] = [
           type: ModuleType.IMGS,
           components: {
             images: [
-              '../../src/assets/gallery/1.jpg',
-              '../../src/assets/gallery/2.jpg',
-              '../../src/assets/gallery/3.jpg',
-              '../../src/assets/gallery/4.jpg',
-              '../../src/assets/gallery/5.jpg'
+              'https://i.pinimg.com/1200x/ea/c5/c8/eac5c8e2aceaa3e8812c95ee55a13870.jpg',
+              'https://i.pinimg.com/736x/56/57/3a/56573ae6329cad8f6440696ad8194cd4.jpg',
+              'https://i.pinimg.com/736x/3f/6c/1f/3f6c1fcfb89e1c16dbd18e1aab5edc3e.jpg',
+              'https://i.pinimg.com/736x/be/e0/f0/bee0f0ef821cb3d5a8923e88b1a5f7be.jpg',
+              'https://i.pinimg.com/736x/2b/bf/4a/2bbf4ad589714611b6258f2a1f6c4aef.jpg',
             ]
           }
         }
