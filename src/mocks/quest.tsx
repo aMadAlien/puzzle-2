@@ -60,6 +60,7 @@ export const quests: Quest[] = [
           type: ModuleType.PUZZLE_LETTER,
           components: {
             letter: null,
+            subtitle: '',
             imgSrc: '../../src/assets/gallery/5.jpg'
           }
         }

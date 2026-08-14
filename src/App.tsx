@@ -3,6 +3,7 @@ import './App.css'
 import QuestPage from "./pages/Quest";
 import HomePage from "./pages/Home";
 import TemplatesCreatePage from "./pages/TemplatesCreatePage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 
 export default function App() {
@@ -17,11 +18,8 @@ export default function App() {
         {/* створення шаблонів */}
         <Route path="/template/create" element={<TemplatesCreatePage />} />
 
-        {/* Якщо плануєш різні типи сторінок */}
-        {/* <Route path="/love-test/:slug" element={<LoveTestPage />} /> */}
-
         {/* 404 */}
-        {/* <Route path="/404" element={<NotFoundPage />} /> */}
+        <Route path="*" element={<NotFoundPage />} />
 
         {/* Всі інші маршрути */}
         <Route path="*" element={<Navigate to="/404" replace />} />
