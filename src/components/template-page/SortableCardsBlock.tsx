@@ -4,7 +4,8 @@ import { Dispatch, SetStateAction } from "react";
 import SortableCard from '../../components/cards/SortableCard';
 import { SelectedModule } from "../../types/module.types";
 
-export default function SortableCardsBlock({ data, selectedId, hideLayers, selectModule, removeModule, setData }: {
+export default function SortableCardsBlock({ align = 'vertical', data, selectedId, hideLayers, selectModule, removeModule, setData }: {
+  align: 'horizontal' | 'vertical',
   hideLayers: boolean,
   selectedId: string | null,
   data: SelectedModule[],
@@ -12,6 +13,7 @@ export default function SortableCardsBlock({ data, selectedId, hideLayers, selec
   selectModule: (id: string) => void,
   setData: Dispatch<SetStateAction<SelectedModule[]>>
 }) {
+  const isVerticalAlign = align === 'vertical';
   return (
     <DndContext
       onDragEnd={({ active, over }) => {
@@ -28,17 +30,17 @@ export default function SortableCardsBlock({ data, selectedId, hideLayers, selec
       <SortableContext items={data.map(item => item.id)}>
         <div
           className={`
-            bg-gray-900 pb-[80px] overflow-y-auto
-            transition-all duration-500
-            ${hideLayers
+            bg-gray-900 md:pb-[80px] overflow-y-auto pb-2
+            transition-all duration-500 max-md:h-full
+            ${isVerticalAlign && (hideLayers
               ? "w-0 p-0 opacity-0"
               : "w-1/3 p-3 opacity-100"
-            }
+            )}
           `}
         >
           {
             data.length ?
-              <div className="flex flex-col gap-4 ">
+              <div className={`${isVerticalAlign ? 'flex-col' : ''} flex gap-3 md:gap-4 h-full`}>
                 {data.map((item, index) => (
                   <SortableCard
                     key={item.id}

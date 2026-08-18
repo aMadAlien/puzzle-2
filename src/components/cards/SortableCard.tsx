@@ -43,7 +43,7 @@ export default function SortableCard({
       style={style}
       {...attributes}
       {...listeners}
-      className={`relative group select-none cursor-grab active:cursor-grabbing`}
+      className={`relative group select-none cursor-grab active:cursor-grabbing max-md:w-[140px] max-md:shrink-0`}
     >
       <div
         className="
@@ -83,11 +83,11 @@ export default function SortableCard({
       </div>
 
       <div className={`test-card flex min-h-[72px] w-full items-center justify-center rounded-xl border border-transparent bg-transparent ${isSelected ? 'active' : ''}`}>
-        <div className="absolute top-[10px] left-[7px] text-black text-xs text-gray-500">
+        <div className="absolute top-[-2px] md:top-[10px] left-[4px] md:left-[7px] text-black text-[10px] md:text-xs text-gray-500">
           {index + 1}.
         </div>
 
-        <div className="flex items-center justify-center w-full h-full">
+        <div className="flex items-center justify-center w-1/2 md:w-full h-full">
           {data.icon}
         </div>
       </div>

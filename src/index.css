@@ -33,6 +33,45 @@
   }
 }
 
+/* ========================================== */
+::-webkit-scrollbar {
+  /* display: none; */
+}
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1d1d1d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a4a4a;
+  border-radius: 7px;
+  border: 3px solid #1d1d1d;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+/* прибрати стрілки */
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+  background: transparent;
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+  display: none;
+  width: 0;
+  height: 0;
+}
+/* ========================================== */
+
 body {
   font-family: "Montserrat", sans-serif;
   margin: 0;
@@ -117,7 +156,6 @@ button {
     margin-top: 50px;
     margin-inline: -16px;
   }
-  
 }
 
 /* -------------------- */
@@ -210,7 +248,7 @@ button {
   position: fixed;
   bottom: 5%;
   right: 5%;
-  z-index: 100;
+  z-index: 10;
   background: #000;
 
   opacity: 0;
@@ -276,6 +314,13 @@ button {
 .test-card.active {
   background: #212121;
   color: rgb(192, 192, 192);
+}
+
+@media (max-width: 768px) {
+  .test-card {
+    height: 100%;
+    border-radius: 4px;
+  }
 }
 
 .switcher {
