@@ -9,7 +9,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/puzzle-2">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/puzzle-2/" element={<HomePage />} />
