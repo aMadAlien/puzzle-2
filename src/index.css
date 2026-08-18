@@ -80,6 +80,13 @@ button {
   cursor: pointer;
 }
 
+.title-main {
+  font-size: 30px;
+  line-height: 120%;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 .title {
   font-size: 24px;
   font-weight: bold;
@@ -88,6 +95,9 @@ button {
 }
 
 @media (max-width: 768px) {
+  .title-main {
+    font-size: 24px;
+  }
   .title {
     font-size: 20px;
   }
@@ -194,7 +204,6 @@ button {
   opacity: 1;
   visibility: visible;
 }
-
 
 .title--large {
   font-size: calc(24px + 117px * (100vw / 1460px));

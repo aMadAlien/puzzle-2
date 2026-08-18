@@ -1,4 +1,4 @@
-import { ModuleInfo } from "../types/common"
+import { ModuleInfo, TemplateInfo } from "../types/common"
 import { ModuleType } from "../types/module.types"
 
 export const modulesList: ModuleInfo[] = [
@@ -36,5 +36,32 @@ export const modulesList: ModuleInfo[] = [
     "title": "Наші моменти",
     "description": "Деякі фотографії зберігають набагато більше, ніж просто зображення — вони повертають у певний день, місце та відчуття. Збери свої найулюбленіші моменти в одну маленьку галерею, до якої захочеться повертатися.",
     "image": "../../src/assets/homepage/module_5.jpg"
+  }
+]
+
+export const templatesList: TemplateInfo[] = [
+  {
+    id: "1",
+    title: 'lorem2lorem2lorem2 lorem2',
+    description: "lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34",
+    image: "https://i.pinimg.com/736x/b7/e0/04/b7e004f5844a1e9bdf6ecf2bed6c27bd.jpg",
+  },
+  {
+    id: "2",
+    title: 'lorem2 lorem2 lorem2 lorem2 lorem2',
+    description: "lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34",
+    image: "../../src/assets/homepage/module_5.jpg",
+  },
+  {
+    id: "3",
+    title: 'lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2',
+    description: "lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34",
+    image: "../../src/assets/homepage/module_3.jpg",
+  },
+  {
+    id: "4",
+    title: 'lorem2',
+    description: "lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34 lorem34",
+    image: "https://i.pinimg.com/736x/e7/54/74/e754745f3a8cd9e24aeba078437fb618.jpg",
   }
 ]

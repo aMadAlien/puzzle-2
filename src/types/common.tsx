@@ -13,3 +13,10 @@ export interface ModuleInfo {
   description: string
   image: string
 }
+
+export interface TemplateInfo {
+  id: string
+  title: string
+  description: string
+  image: string
+}

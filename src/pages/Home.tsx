@@ -5,7 +5,9 @@ import QuoteBlock from "../components/homepage/QuoteBlock"
 import ScrollLine from "../components/homepage/ScrollLine"
 import SideTemplate from "../components/homepage/SideTemplate"
 import GreetingBlock from "../components/homepage/GreetingBlock"
-import { modulesList } from "../mocks/homepage"
+import { modulesList, templatesList } from "../mocks/homepage"
+import VerticalScreenCard from "../components/cards/VerticalScreenCard"
+import { Link } from "react-router-dom"
 
 export default function HomePage() {
   return (
@@ -67,6 +69,26 @@ export default function HomePage() {
               <ContactInput />
             </div>
 
+          </div>
+        </section>
+
+        <section className="mt-20 mb-10 border-t border-black pt-5">
+          <h2 className="mb-9 title-main">Готові шаблони на будь-яку подію</h2>
+          <div className="flex gap-5 overflow-auto">
+
+            {templatesList.map(data => (
+              <VerticalScreenCard key={data.id} data={data} />
+            ))}
+
+          </div>
+        </section>
+
+
+        <section className="mt-20 py-4 border-t border-gray-400 md:flex md:justify-between text-xs">
+          <p>© 2026 Всі права захищені. Створено з любов'ю.</p>
+          <div className="flex gap-7 justify-between max-w-[400px] max-md:mt-4">
+            <Link to="">TikTok</Link>
+            <Link to="">Instagram</Link>
           </div>
         </section>
       </div>
