@@ -12,6 +12,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/puzzle-2/" element={<HomePage />} />
 
         {/* Квест по slug */}
         <Route path="/quest/:slug" element={<QuestPage />} />
