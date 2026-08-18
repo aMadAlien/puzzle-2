@@ -103,6 +103,21 @@ button {
   }
 }
 
+@media (max-width: 948px) {
+  .modules-presentation-block {
+    flex-direction: column;
+  }
+
+  .modules-block {
+    width: 100%;
+  }
+
+  .template-block {
+    width: 100%;
+  }
+  
+}
+
 /* -------------------- */
 .heart {
   fill: red;

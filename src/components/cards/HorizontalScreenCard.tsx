@@ -6,8 +6,8 @@ export default function HorizontalScreenCard({ data }: { data: ModuleInfo }) {
   const { savedModules, toggleModule } = useSavedModules();
 
   return (
-    <div className="flex gap-5">
-      <div className="w-[200px] aspect-square relative overflow-hidden shrink-0">
+    <div className="flex gap-5 max-sm:flex-col">
+      <div className="max-sm:h-[240px] w-full sm:w-[200px] sm:aspect-square relative overflow-hidden shrink-0">
         <img src={data.image} alt="main image"
           className="w-full h-full object-cover"
         />
@@ -15,8 +15,8 @@ export default function HorizontalScreenCard({ data }: { data: ModuleInfo }) {
 
       <div className="flex flex-col gap-3 justify-between w-full">
         <div>
-          <h3 className="text-xl font-bold uppercase">{data.title}</h3>
-          <p className="text-[#1d1d1d]">{data.description}</p>
+          <h3 className="text-base md:text-xl font-bold uppercase">{data.title}</h3>
+          <p className="max-md:text-sm text-[#1d1d1d]">{data.description}</p>
         </div>
 
         <SaveBtn

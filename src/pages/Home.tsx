@@ -24,7 +24,7 @@ export default function HomePage() {
 
         <BasketBtn />
 
-        <p className="text-xl font-bold">Віртуальний подарунок</p>
+        <p className="text-sm sn:text-xl font-bold">Віртуальний подарунок</p>
         <div className="h-[1px] w-full bg-[#1d1d1d]" />
 
         <h1 className="title--large my-7">
@@ -43,9 +43,9 @@ export default function HomePage() {
         <GreetingBlock />
 
         <section className="my-10">
-          <div className="flex gap-5 justify-between">
+          <div className="flex gap-5 justify-between modules-presentation-block">
 
-            <div className=" w-[70%]">
+            <div className="modules-block w-[70%]">
               <div className="flex flex-col gap-7">
                 {
                   modulesList.map(item => (
@@ -64,7 +64,7 @@ export default function HomePage() {
             </div>
 
 
-            <div className="w-[25%] flex flex-col gap-5">
+            <div className="template-block w-[25%] flex flex-col gap-5">
               <SideTemplate />
               <ContactInput />
             </div>
