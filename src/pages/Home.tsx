@@ -43,9 +43,10 @@ export default function HomePage() {
         <GreetingBlock />
 
         <section className="my-10">
-          <div className="flex gap-5 justify-between modules-presentation-block">
+          <div className="flex gap-5 justify-between modules-presentation-block border-t border-gray-400 pt-10">
 
             <div className="modules-block w-[70%]">
+              <div className="title-main mb-10">Вражаючі модулі</div>
               <div className="flex flex-col gap-7">
                 {
                   modulesList.map(item => (

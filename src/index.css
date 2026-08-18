@@ -113,7 +113,9 @@ button {
   }
 
   .template-block {
-    width: 100%;
+    width: calc(100% + 32px);
+    margin-top: 50px;
+    margin-inline: -16px;
   }
   
 }
