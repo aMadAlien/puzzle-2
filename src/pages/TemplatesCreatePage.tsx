@@ -145,7 +145,7 @@ export default function TemplatesCreatePage() {
           className={`
             fixed bottom-[124px] left-0 w-full bg-gray-800 z-[10]
             transition-transform duration-700 ease-in-out pt-2
-            h-[calc(100vh-150px)]
+            h-[calc(100dvh-150px)]
             ${isOpen
               ? "translate-y-[0px]"
               : "translate-y-[calc(100%-20px)]"
@@ -208,7 +208,7 @@ export default function TemplatesCreatePage() {
 
 
           {/* список доступних модулів */}
-          <div className="h-[calc(100vh-140px-20px)]">
+          <div className="h-[calc(100dvh-140px-20px)]">
             {/* блок для редагування модуля */}
             {
               moduleMode === 'edit' &&
@@ -279,7 +279,7 @@ export default function TemplatesCreatePage() {
 
         <div className="flex gap-2">
 
-          <div className="overflow-hidden mr-0 h-[calc(100vh-16px*2)] max-w-[50vw] w-full">
+          <div className="overflow-hidden mr-0 h-[calc(100dvh-16px*2)] max-w-[50vw] w-full">
             {/* світчер для блоків вибір/редагування модуля */}
             <div className="flex justify-between gap-4">
               <TabsSwitcher
@@ -384,7 +384,7 @@ function RenderModule({ selectedModule, module, selectedModules, selectedId, set
   setSelectedId: (arg: string) => void
 }) {
   return (
-    <div className="rounded-lg bg-[#181818] h-[calc(100vh-140px)] md:h-[calc(100vh-16px*2)] md:max-w-[50vw] w-full">
+    <div className="rounded-lg bg-[#181818] h-[calc(100dvh-140px)] md:h-[calc(100dvh-16px*2)] md:max-w-[50vw] w-full">
       {selectedModule && module ? (
         <ScreenWrapper
           data={selectedModule.data.components}

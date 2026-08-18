@@ -82,7 +82,7 @@ body {
   font-family: "Science Gothic", sans-serif;
   background: #1d1d1d;
   color: var(--text);
-  height: 100vh;
+  height: 100dvh;
 }
 
 #root {
@@ -90,7 +90,7 @@ body {
   max-width: 100%;
   margin: 0 auto;
   /* text-align: center; */
-  min-height: 100svh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;

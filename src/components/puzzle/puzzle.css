@@ -201,7 +201,7 @@
 
 .image-hint.active img {
     width: min(90vw, 700px);
-    height: min(90vh, 700px);
+    height: min(90dvh, 700px);
     object-fit: contain;
 
     top: 50%;

@@ -23,7 +23,7 @@ export default function Rules({ data, onNextStep }: { data: { title: string; des
                     </>
             }
 
-            <div className="w-full h-full max-h-[60vh] max-md:max-h-[40vh] overflow-hidden mx-auto relative">
+            <div className="w-full h-full max-h-[60dvh] max-md:max-h-[40dvh] overflow-hidden mx-auto relative">
                 <img
                     className="w-full h-full object-contain absolute"
                     src={imgSrc} />
