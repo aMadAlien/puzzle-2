@@ -8,7 +8,7 @@ import { quests } from '../mocks/quest';
 
 export default function QuestPage() {
   const [quest, setQuest] = useState<Quest | null>(null);
-  const [stepIndex, setStepIndex] = useState(4);
+  const [stepIndex, setStepIndex] = useState(0);
 
   const { slug } = useParams<{ slug: string }>();
   // const slug = window.location.pathname.split("/").pop();

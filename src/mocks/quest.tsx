@@ -12,7 +12,7 @@ export const quests: Quest[] = [
     title: 'Quest 1',
     steps: [
       {
-        id: '',
+        id: '1',
         slug: 'greeting',
         name: 'Greeting',
         component: Greeting,
@@ -25,7 +25,7 @@ export const quests: Quest[] = [
         }
       },
       {
-        id: '',
+        id: '2',
         slug: 'text-q',
         name: 'Text Question',
         component: TextQuestion,
@@ -38,7 +38,7 @@ export const quests: Quest[] = [
         }
       },
       {
-        id: '',
+        id: '3',
         slug: 'puzzle-rules',
         name: 'Puzzle Rules',
         component: Rules,
@@ -52,7 +52,7 @@ export const quests: Quest[] = [
         }
       },
       {
-        id: '',
+        id: '4',
         slug: 'puzzle',
         name: 'Puzzle',
         component: Puzzle,
@@ -66,7 +66,7 @@ export const quests: Quest[] = [
         }
       },
       {
-        id: '',
+        id: '5',
         slug: 'gallery',
         name: 'Gallery',
         component: Gallery,
