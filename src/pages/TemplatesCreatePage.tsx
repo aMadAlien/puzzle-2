@@ -8,6 +8,7 @@ import ConfirmModal from "../components/ui/ConfirmModal";
 import TabSwitcherIns from "../components/template-page/TabSwitcherIns.tsx";
 import MenuBlock from "../components/template-page/MenuBlock.tsx";
 import RenderModule from "../components/template-page/RenderModule.tsx";
+import SaveTemplateBtn from "../components/template-page/SaveTemplateBtn.tsx";
 
 export type ModuleMode = 'list' | 'edit' | 'saved';
 
@@ -120,6 +121,11 @@ export default function TemplatesCreatePage() {
   if (isMobile) {
     return (
       <div className="h-screen w-screen overflow-hidden bg-[#1d1d1d]">
+        <SaveTemplateBtn
+          isSaving={isSaving}
+          selectedModules={selectedModules}
+          handleSaveTemplate={handleSaveTemplate}
+        />
         <ConfirmModal
           isOpen={deleteTargetId !== null}
           title="Видалити модуль?"
@@ -225,16 +231,12 @@ export default function TemplatesCreatePage() {
       />
 
       <div className="flex flex-col gap-3 p-4">
-        <div className="fixed top-4 right-4 z-[100]">
-          <button
-            type="button"
-            onClick={handleSaveTemplate}
-            disabled={isSaving || selectedModules.length === 0}
-            className="rounded-lg bg-[#7c3aed] px-4 py-2 text-sm font-medium text-white transition hover:bg-[#6d28d9] disabled:cursor-not-allowed disabled:bg-[#4c4c4c] disabled:text-[#a3a3a3]"
-          >
-            {isSaving ? 'Збереження...' : 'Зберегти шаблон'}
-          </button>
-        </div>
+        <SaveTemplateBtn
+          isSaving={isSaving}
+          selectedModules={selectedModules}
+          handleSaveTemplate={handleSaveTemplate}
+        />
+
 
         <div className="flex gap-2">
 
