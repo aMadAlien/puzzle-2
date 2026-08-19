@@ -1,8 +1,3 @@
-import Gallery from "../components/screens/Gallery";
-import Greeting from "../components/screens/Greeting";
-import Puzzle from "../components/screens/Puzzle";
-import Rules from "../components/screens/Rules";
-import TextQuestion from "../components/screens/TextQuestion";
 import { Quest } from "../types/common";
 import { ModuleType } from "../types/module.types";
 
@@ -15,7 +10,6 @@ export const quests: Quest[] = [
         id: '1',
         slug: 'greeting',
         name: 'Greeting',
-        component: Greeting,
         data: {
           type: ModuleType.TEXT,
           components: {
@@ -26,9 +20,8 @@ export const quests: Quest[] = [
       },
       {
         id: '2',
-        slug: 'text-q',
+        slug: 'textQuestion',
         name: 'Text Question',
-        component: TextQuestion,
         data: {
           type: ModuleType.QUESTION_TEXT,
           components: {
@@ -39,9 +32,8 @@ export const quests: Quest[] = [
       },
       {
         id: '3',
-        slug: 'puzzle-rules',
+        slug: 'textImg',
         name: 'Puzzle Rules',
-        component: Rules,
         data: {
           type: ModuleType.TEXT_IMG,
           components: {
@@ -55,7 +47,6 @@ export const quests: Quest[] = [
         id: '4',
         slug: 'puzzle',
         name: 'Puzzle',
-        component: Puzzle,
         data: {
           type: ModuleType.PUZZLE_LETTER,
           components: {
@@ -69,7 +60,6 @@ export const quests: Quest[] = [
         id: '5',
         slug: 'gallery',
         name: 'Gallery',
-        component: Gallery,
         data: {
           type: ModuleType.IMGS,
           components: {

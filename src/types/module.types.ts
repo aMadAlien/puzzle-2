@@ -83,9 +83,8 @@ export type ModuleComponents =
 
 export interface Module<T extends ModuleData = ModuleData> {
   id: string;
-  slug: string;
+  slug: ModuleSlug;
   name: string;
-  component: ComponentType<any>;
   data: T;
 }
 
