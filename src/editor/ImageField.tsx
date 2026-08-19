@@ -21,7 +21,6 @@ export default function ImageField({
 
     reader.onload = () => {
       const result = typeof reader.result === 'string' ? reader.result : '';
-      console.log('result', result)
       onChange(result);
     };
 

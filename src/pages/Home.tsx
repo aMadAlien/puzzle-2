@@ -57,11 +57,11 @@ export default function HomePage() {
                   ))
                 }
               </div>
-              <button className="flex gap-2 items-center transition-all duration-300 hover:opacity-50 mt-10">
+              <Link to="/template/create" className="flex gap-2 items-center transition-all duration-300 hover:opacity-50 mt-10">
                 <span className="text-sm uppercase">Переглянути всі</span>
 
                 <svg className="rotate-90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M13 20h-2V8l-5.5 5.5l-1.42-1.42L12 4.16l7.92 7.92l-1.42 1.42L13 8z"></path></svg>
-              </button>
+              </Link>
             </div>
 
 

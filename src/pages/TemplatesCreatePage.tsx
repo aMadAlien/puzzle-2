@@ -64,7 +64,8 @@ export default function TemplatesCreatePage() {
     if (!config) return
 
     const newModule: SelectedModule = {
-      id: crypto.randomUUID(),
+      // id: crypto.randomUUID(),
+      id: Date.now().toString(),
       slug,
       name: config.name,
       data: config.createData(),
@@ -208,7 +209,7 @@ export default function TemplatesCreatePage() {
 
 
           {/* список доступних модулів */}
-          <div className="h-[calc(100dvh-140px-20px)]">
+          <div className="h-[calc(100dvh-140px-20px-70px)] overflow-auto">
             {/* блок для редагування модуля */}
             {
               moduleMode === 'edit' &&

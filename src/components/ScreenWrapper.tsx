@@ -1,6 +1,7 @@
+import { ModuleComponents, ModuleData } from "../types/module.types";
 
 interface ScreenWrapProps {
-    data: any;
+    data: ModuleComponents;
     onNextStep: () => void;
     Step: React.ComponentType<{ data: any; onNextStep: () => void }>;
 }

@@ -5,9 +5,9 @@ import App from './App.jsx'
 import SavedModulesProvider from './context/SavedModulesContext'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  // <StrictMode>
     <SavedModulesProvider>
       <App />
     </SavedModulesProvider>
-  </StrictMode>,
+  // </StrictMode>,
 )
