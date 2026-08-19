@@ -61,7 +61,7 @@ export default function SortableCard({
         active:cursor-grabbing
         aspect-square
         w-full
-        max-md:w-[140px]
+        max-md:w-[calc(140px-24px)]
         max-md:shrink-0
         overflow-hidden
       "
@@ -105,7 +105,7 @@ export default function SortableCard({
 
       <div
         ref={previewRef}
-        className="absolute inset-0 overflow-hidden bg-gray-700 rounded-lg"
+        className="absolute inset-0 overflow-hidden bg-gray-700 rounded-lg pointer-events-none"
       >
         <div
           className="
