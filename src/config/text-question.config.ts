@@ -5,13 +5,13 @@ export const textQuestionFormConfig: FormConfig = {
   fields: {
     question: {
       type: FieldType.TEXT,
-      label: 'Питання',
+      label: 'Задайте питання',
       placeholder: 'Задайте питання...',
     },
 
     correctAnswer: {
       type: FieldType.TEXTAREA,
-      label: 'Відповідь',
+      label: 'Дайте відповідь',
       placeholder: 'Дайте відповідь...',
       rows: 5,
     },

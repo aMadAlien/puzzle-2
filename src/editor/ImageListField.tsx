@@ -51,7 +51,7 @@ export default function ImageListField({
 
   return (
     <div className="flex flex-col gap-3">
-      <label className="text-sm font-medium text-gray-300">{label}</label>
+      <label className="form-label">{label}</label>
 
       {value.length > 0 ? (
         <div className="grid grid-cols-3 gap-3">

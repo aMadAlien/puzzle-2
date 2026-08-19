@@ -14,7 +14,7 @@ export const textImgFormConfig: FormConfig = {
     },
     description: {
       type: FieldType.TEXTAREA,
-      label: 'Звернення/опис',
+      label: 'Звернення',
       placeholder: 'Дякую тобі за те, що ти є в моєму житті...',
       rows: 7,
     },

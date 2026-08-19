@@ -133,6 +133,12 @@ button {
   color: white;
 }
 
+.form-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #676565;
+}
+
 @media (max-width: 768px) {
   .title-main {
     font-size: 24px;

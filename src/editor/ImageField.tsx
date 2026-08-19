@@ -35,7 +35,7 @@ export default function ImageField({
 
   return (
     <div className="flex flex-col gap-3">
-      <label className="text-sm font-medium text-gray-300">{label}</label>
+      <label className="form-label">{label}</label>
 
       {value ? (
         <div className="relative overflow-hidden rounded-xl border border-gray-700 bg-gray-800">
@@ -72,7 +72,7 @@ export default function ImageField({
 
         <label
           htmlFor={inputId}
-          className="inline-flex cursor-pointer items-center justify-center rounded-lg border border-blue-500 bg-blue-500/10 px-3 py-2 text-sm font-medium text-blue-300 transition hover:bg-blue-500/20"
+          className="inline-flex cursor-pointer items-center justify-center rounded-lg border border-blue-500 bg-blue-500/10 px-3 py-2 form-label transition hover:bg-blue-500/20"
         >
           {value ? 'Замінити фото' : 'Додати фото'}
         </label>
