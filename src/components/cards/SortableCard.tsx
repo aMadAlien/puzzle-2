@@ -1,6 +1,10 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { SelectedModule } from "../../types/module.types";
+import {  SelectedModule } from "../../types/module.types";
+import ScreenWrapper from "../ScreenWrapper";
+import { moduleRegistry } from "../../config/moduleRegistry";
+import useElementSize from "../../hooks/useElementSize";
+
 
 export default function SortableCard({
   id,
@@ -37,18 +41,35 @@ export default function SortableCard({
     selectModule(data.id);
   }
 
+  const { ref: previewRef, size: previewSize } = useElementSize<HTMLDivElement>();
+
+  const module = moduleRegistry[data.slug];
+
+  if (!module) return null;
+
   return (
     <div
       ref={setNodeRef}
       style={style}
       {...attributes}
       {...listeners}
-      className={`relative group select-none cursor-grab active:cursor-grabbing max-md:w-[140px] max-md:shrink-0`}
+      className="
+        relative
+        group
+        select-none
+        cursor-grab
+        active:cursor-grabbing
+        aspect-square
+        w-full
+        max-md:w-[140px]
+        max-md:shrink-0
+        overflow-hidden
+      "
     >
       <div
         className="
           absolute top-[7px] right-[7px]
-          flex gap-2
+          flex gap-2 z-[10]
           opacity-0 scale-95 translate-y-[-3px]
           pointer-events-none
           transition-all duration-200
@@ -82,7 +103,32 @@ export default function SortableCard({
         </button>
       </div>
 
-      <div className={`test-card flex min-h-[72px] w-full items-center justify-center rounded-xl border border-transparent bg-transparent ${isSelected ? 'active' : ''}`}>
+      <div
+        ref={previewRef}
+        className="absolute inset-0 overflow-hidden bg-gray-700 rounded-lg"
+      >
+        <div
+          className="
+            absolute
+            left-0
+            top-0
+            w-[714px]
+            h-[714px]
+            origin-top-left
+          "
+          style={{
+            transform: `scale(${previewSize / 714})`,
+          }}
+        >
+          <ScreenWrapper
+            data={data.data.components}
+            onNextStep={() => { }}
+            Step={module?.component}
+          />
+        </div>
+      </div>
+
+      {/* <div className={`test-card test-card__saved flex min-h-[72px] w-full items-center justify-center border border-transparent bg-transparent ${isSelected ? 'active' : ''}`}>
         <div className="absolute top-[-2px] md:top-[10px] left-[4px] md:left-[7px] text-black text-[10px] md:text-xs text-gray-500">
           {index + 1}.
         </div>
@@ -90,7 +136,7 @@ export default function SortableCard({
         <div className="flex items-center justify-center w-1/2 md:w-full h-full">
           {data.icon}
         </div>
-      </div>
-    </div>
+      </div> */}
+    </div >
   );
 }

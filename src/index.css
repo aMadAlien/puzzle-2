@@ -311,6 +311,10 @@ button {
   transition: all 0.4s ease;
 }
 
+.test-card__saved {
+  height: 100%;
+}
+
 .test-card.active {
   background: #212121;
   color: rgb(192, 192, 192);

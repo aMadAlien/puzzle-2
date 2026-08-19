@@ -74,6 +74,12 @@ export type ModuleData =
   | PuzzleData
   | GalleryData;
 
+export type ModuleComponents =
+  | GreetingComponents
+  | TextQuestionComponents
+  | RulesComponents
+  | PuzzleComponents
+  | GalleryComponents;
 
 export interface Module<T extends ModuleData = ModuleData> {
   id: string;
