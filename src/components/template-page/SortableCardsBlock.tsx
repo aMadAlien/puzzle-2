@@ -5,7 +5,7 @@ import SortableCard from '../../components/cards/SortableCard';
 import { SelectedModule } from "../../types/module.types";
 
 export default function SortableCardsBlock({ align = 'vertical', data, selectedId, hideLayers, selectModule, removeModule, setData }: {
-  align: 'horizontal' | 'vertical',
+  align?: 'horizontal' | 'vertical',
   hideLayers: boolean,
   selectedId: string | null,
   data: SelectedModule[],
@@ -53,7 +53,7 @@ export default function SortableCardsBlock({ align = 'vertical', data, selectedI
                   />
                 ))}
               </div>
-              : <p className="text-gray-200 text-xs">Почніть додавати модулі. Вони зявляться тут</p>
+              : <p className="text-gray-200 text-sm md:text-xs text-center">Почніть додавати модулі. Вони зявляться тут</p>
           }
         </div>
       </SortableContext>

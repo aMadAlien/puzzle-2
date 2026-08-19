@@ -1,6 +1,6 @@
 import { DynamicForm } from './DynamicForm';
-import { ModuleData, SelectedModule } from '../types/module.types';
-import { moduleRegistry, ModuleSlug } from "../config/moduleRegistry";
+import { ModuleData, ModuleSlug, SelectedModule } from '../types/module.types';
+import { moduleRegistry } from "../config/moduleRegistry";
 
 interface Props {
   module: SelectedModule;
